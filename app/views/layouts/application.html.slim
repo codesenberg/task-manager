@@ -7,13 +7,11 @@ html
     = csrf_meta_tags
 body
   nav.navbar.navbar-default
-    div.container-fluid
+    .container-fluid
       a.navbar-brand href= root_path Task Manager
-      form.navbar-form.navbar-right role="search"
-        div.form-group
-          input.form-control type="text" placeholder="Email"
-        div.form-group
-          input.form-control type="text" placeholder="Password"
-        button.btn.btn-primary type="submit" Sign In
+      - if user_signed_in?
+        == render 'devise/sessions/navbar_user_sign_out'
+      - else
+        == render 'devise/sessions/navbar_user_sign_in'
   .container-fluid
     == yield

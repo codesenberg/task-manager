@@ -1,3 +1,15 @@
 .row
   .col-xs-8.col-xs-offset-2
-    p Hello
+    - @tasks.each do |task|
+      .panel.panel-default
+        .panel-heading
+          .clearfix
+            .pull-left.padding
+              = task.name
+            .pull-right.email-border.padding
+              = task.user.email
+        .panel-body
+          = task.description
+.row
+  .col-xs-8.col-xs-offset-2.text-center
+    = paginate @tasks
