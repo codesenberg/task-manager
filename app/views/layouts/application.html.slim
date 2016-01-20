@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title Task Manager
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+body
+  nav.navbar.navbar-default
+    div.container-fluid
+      a.navbar-brand href= root_path Task Manager
+      form.navbar-form.navbar-right role="search"
+        div.form-group
+          input.form-control type="text" placeholder="Email"
+        div.form-group
+          input.form-control type="text" placeholder="Password"
+        button.btn.btn-primary type="submit" Sign In
+  .container-fluid
+    == yield
