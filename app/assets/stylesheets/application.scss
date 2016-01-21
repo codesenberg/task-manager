@@ -2,3 +2,7 @@
 @import "bootstrap";
 
 @import "util";
+
+// Sticky navbar requires this padding tweak in order to not overlap with
+// the body of the page.
+body { padding-top: 70px; }

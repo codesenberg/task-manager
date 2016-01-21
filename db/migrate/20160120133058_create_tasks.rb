@@ -5,7 +5,7 @@ class CreateTasks < ActiveRecord::Migration
       t.text :description, null: false
       t.integer :state, null: false, default: 0
 
-      t.belongs_to :user, index: true
+      t.belongs_to :user, foreign_key: true, index: true, null: false
 
       t.timestamps null: false
     end

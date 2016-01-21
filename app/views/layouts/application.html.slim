@@ -1,16 +1,17 @@
 doctype html
 html
   head
-    title Task Manager
+    title = t('application.name')
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 body
-  nav.navbar.navbar-default
+  nav.navbar.navbar-default.navbar-fixed-top
     .container-fluid
       a.navbar-brand href= root_path Task Manager
       - if user_signed_in?
         == render 'devise/sessions/navbar_user_sign_out'
+        == render 'user/info'
       - else
         == render 'devise/sessions/navbar_user_sign_in'
   .container-fluid

@@ -7,6 +7,12 @@
 # Ignore IDEA files
 /.idea
 
+# Ignore local pg database
+/db/development-db
+
+# Ignore byebug history
+/.byebug_history
+
 # Ignore bundler config.
 /.bundle
 

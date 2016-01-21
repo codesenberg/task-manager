@@ -1,0 +1,10 @@
+.row
+  .col-xs-8.col-xs-offset-2
+    - @tasks.each do |task|
+      .panel.panel-default
+        .panel-heading
+          .clearfix
+            .pull-left.padding
+              = task.name
+        .panel-body
+          = task.description

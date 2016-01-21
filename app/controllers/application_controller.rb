@@ -12,4 +12,9 @@ class ApplicationController < ActionController::Base
       redirect_to root_url
     end
   end
+
+  def after_sign_in_path_for(resource)
+    return task_index_path if resource.class == User
+    super
+  end
 end
