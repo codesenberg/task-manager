@@ -34,9 +34,16 @@ gem 'kaminari', '~> 0.16'
 
 # AASM - State machines for Ruby classes
 gem 'aasm', '~> 4.7'
+# Trailblazer is a thin layer on top of Rails. It gently enforces
+# encapsulation, an intuitive code structure and gives you an
+# object-oriented architecture.
+gem 'trailblazer', '~> 1.1'
+gem 'trailblazer-rails', '~> 0.2.3'
 
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
 gem 'carrierwave', '~> 0.10'
+# ActiveModel validations for file fields
+gem 'file_validators', '~> 2.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -50,6 +57,8 @@ gem 'puma', '~> 2.15'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'better_errors', '~> 2.1'
+  gem 'binding_of_caller'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

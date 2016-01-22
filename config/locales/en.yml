@@ -20,6 +20,46 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
   application:
     name: "Task Manager"
+  tasks:
+    submit: "Submit"
+  navigation:
+    my_tasks: "My Tasks"
+  errors:
+    messages:
+#      file_size_is_in: "size must be between %{min} and %{max}"
+#      file_size_is_less_than: ! 'file size must be less than %{count}'
+      file_size_is_less_than_or_equal_to: "size must be less than or equal to %{count}"
+#      file_size_is_greater_than: ! 'file size must be greater than %{count}'
+#      file_size_is_greater_than_or_equal_to: ! 'file size must be greater than or equal to %{count}'
+
+#      spoofed_file_media_type: file has an extension that does not match its contents
+      allowed_file_content_types: "can only have on of the following types: %{types}"
+#      excluded_file_content_types: ! 'file cannot be %{types}'
+  task:
+    name:
+      placeholder: "Enter task name"
+      label: "Name"
+    description:
+      placeholder: "Enter task description"
+      label: "Description"
+    attachments:
+      label: "Attachments"
+    status:
+      added: Added
+      started: Started
+      finished: Finished
+    show:
+      attached_files: "Attached files"
+  navbar:
+    home: "My tasks"
+    all_tasks: "All tasks"
+  common:
+    edit: "Edit"
+    start: "Start"
+    finish: "Finish"
+    destroy: "Destroy"
+    create_new_task: "Create new task"
+    attach: "Attach"
+    new_attachment: "Attach new file"

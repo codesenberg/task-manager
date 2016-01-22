@@ -24,3 +24,7 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore uploads and assets
+/public/uploads
+/public/assets

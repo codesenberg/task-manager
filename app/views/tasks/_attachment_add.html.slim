@@ -1,0 +1,5 @@
+h4 = t('common.new_attachment')
+= form_for :attachment, url: add_attachments_path(task) do |f|
+  .form-group
+    = f.file_field :file
+  = f.submit t('common.attach'), class: "btn btn-primary btn-block"

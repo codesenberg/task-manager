@@ -1,4 +1,5 @@
-- provide :active_tab, 'root'
+- provide :active_tab, 'tasks'
+
 .row
   .col-xs-8.col-xs-offset-2
     - @tasks.each do |task|
@@ -6,12 +7,9 @@
         .panel-heading
           .clearfix
             .pull-left.padding
-              = task.name
+              = link_to task.name, task_path(task)
             .pull-right
-              .border-sm.padding
-                = task.user.email
+              = render partial: 'status', locals: {task: task}
         .panel-body
           = task.description
-.row
-  .col-xs-8.col-xs-offset-2.text-center
     = paginate @tasks

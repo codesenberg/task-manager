@@ -1,0 +1,22 @@
+- provide :active_tab, 'tasks/new'
+.row
+  .col-xs-6.col-xs-offset-3
+    - if @form.errors.full_messages.present?
+      .alert.alert-danger
+        ul
+        - @form.errors.full_messages.each do |message|
+          li = message
+    = form_for @form do |f|
+      .form-group
+        label for="name" = t('task.name.label')
+        = f.text_field :name, class: "form-control", placeholder: t('task.name.placeholder')
+      .form-group
+        label for="description" = t('task.description.label')
+        = f.text_area :description, class: "form-control", placeholder: t('task.description.placeholder')
+      .form-group
+        label for="attachments" = t('task.attachments.label')
+        = f.file_field :attachments, multiple: true
+      .container-fluid
+        .row
+          .col-xs-6.col-xs-offset-3.text-center
+            = f.submit t('tasks.submit'), class: "btn btn-primary btn-block"

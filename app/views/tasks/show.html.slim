@@ -1,0 +1,28 @@
+- if flash[:file_upload_errors]
+  .row
+    .col-xs-8.col-xs-offset-2
+      .alert.alert-danger
+        ul
+          - flash[:file_upload_errors].each do |message|
+            li = message
+.row
+  .col-xs-8.col-xs-offset-2
+    .panel class=(status_panel_class(@task))
+      .panel-heading
+        .clearfix
+          .pull-left.padding
+            = @task.name
+          .pull-right
+            = render partial: 'status', locals: {task: @task}
+      .panel-body
+        .container-fluid
+          .row
+            .col-xs-8
+              h4 = t('task.description.label')
+              = @task.description
+            .col-xs-4
+              h4 = t('task.show.attached_files')
+              = render partial: 'attachment_table', locals: {task: @task}
+          .row
+            .col-xs-12
+              = render partial: 'actions', locals: {task: @task}

@@ -1,7 +1,7 @@
 class Task < ActiveRecord::Base
   include AASM
   belongs_to :user
-  has_many :attachments
+  has_many :attachments, dependent: :destroy
 
   enum state: {
     added: 0,

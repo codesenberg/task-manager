@@ -14,7 +14,7 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender =
     Rails.env.production? ?
-      "no-reply@#{config.secrets.host}" :
+      "no-reply@#{Rails.application.secrets.host}" :
       'localhost@nodomain.com'
 
   # Configure the class responsible to send e-mails.
