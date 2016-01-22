@@ -1,6 +1,7 @@
 class Task < ActiveRecord::Base
   include AASM
   belongs_to :user
+  has_many :attachments
 
   enum state: {
     added: 0,
