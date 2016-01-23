@@ -1,6 +1,7 @@
 nav.navbar.navbar-default.navbar-fixed-top
   .container-fluid
-    a.navbar-brand href= root_path = t('application.name')
+    .navbar-header
+      a.navbar-brand href= root_path = t('application.name')
     - if user_signed_in?
       ul.nav.navbar-nav
         li class=('active' if (yield :active_tab) == 'root')

@@ -9,13 +9,13 @@ class Task::Update < Trailblazer::Operation
     property :name,
              validates: {
                  presence: true,
-                 length: { maximum: 100 }
+                 length: { maximum: Task::MAX_NAME_LENGTH }
              }
 
     property :description,
              validates: {
                  presence: true,
-                 length: { maximum: 3000 }
+                 length: { maximum: Task::MAX_DESCRIPTION_LENGTH }
              }
   end
 

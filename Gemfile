@@ -17,7 +17,8 @@ gem 'slim-rails', '~> 3.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications.
+# bootstrap-sass is a Sass-powered version of Bootstrap 3,
+# ready to drop right into your Sass powered applications.
 gem 'bootstrap-sass', '~> 3.3.6'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -66,6 +67,12 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
+  # Mutes assets pipeline log messages.
   gem 'quiet_assets'
+
+  # TDD, BDD and other D's
+  gem 'rspec', '~> 3.4'
+  gem 'rspec-rails', '~> 3.4'
+  gem 'database_cleaner', '~> 1.5'
 end
 

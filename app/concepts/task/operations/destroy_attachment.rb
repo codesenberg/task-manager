@@ -1,4 +1,4 @@
-class DestroyAttachment < Trailblazer::Operation
+class Task::DestroyAttachment < Trailblazer::Operation
   include Policy
   policy Task::Policy, :destroy_attachment?
 

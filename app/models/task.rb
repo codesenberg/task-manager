@@ -3,6 +3,9 @@ class Task < ActiveRecord::Base
   belongs_to :user
   has_many :attachments, dependent: :destroy
 
+  MAX_NAME_LENGTH = 30
+  MAX_DESCRIPTION_LENGTH = 3000
+
   enum state: {
     added: 0,
     started: 1,

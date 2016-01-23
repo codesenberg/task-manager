@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
 
     collection do
-      post 'add/:task_id', to: :add, as: :add
+      post 'add/:task_id', action: :add, as: :add
     end
   end
 end

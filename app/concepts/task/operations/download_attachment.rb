@@ -1,4 +1,4 @@
-class DownloadAttachment < Trailblazer::Operation
+class Task::DownloadAttachment < Trailblazer::Operation
   include Policy
   policy Task::Policy, :download_attachment?
 

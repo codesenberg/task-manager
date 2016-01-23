@@ -9,13 +9,13 @@ class Task::Create < Trailblazer::Operation
     property :name,
              validates: {
                presence: true,
-               length: { maximum: 100 }
+               length: { maximum: Task::MAX_NAME_LENGTH }
              }
 
     property :description,
              validates: {
                presence: true,
-               length: { maximum: 3000 }
+               length: { maximum: Task::MAX_DESCRIPTION_LENGTH }
              }
 
     property :user_id, validates: {presence: true}
