@@ -26,5 +26,5 @@
 /tmp
 
 # Ignore uploads and assets
-/private/uploads
+/private
 /public/assets
