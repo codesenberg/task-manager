@@ -1,28 +1,16 @@
-== README
+== Task Manager
+=== Prerequisites:
+* git
+* rvm
+* docker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+=== Installation:
+  1. git clone https://github.com/username-from-outer-space/task-manager.git
+  2. cd task-manager
+  3. bundle
+  4. script/pg.sh start
+  5. bundle exec rake db:create db:migrate db:seed
+And you good to go. Also you might want to run tests:
+  bundle exec rake spec
+But be sure to create test database first via:
+  RAILS_ENV=test bundle exec rake db:create

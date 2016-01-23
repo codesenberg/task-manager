@@ -37,6 +37,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     arel (6.0.3)
     autoprefixer-rails (6.3.1)
       execjs
@@ -53,6 +54,13 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (8.2.1)
+    capybara (2.6.0)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -231,6 +239,8 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -241,6 +251,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass (~> 3.3.6)
   byebug
+  capybara (~> 2.6)
   carrierwave (~> 0.10)
   coffee-rails (~> 4.1.0)
   database_cleaner (~> 1.5)

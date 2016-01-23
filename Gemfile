@@ -73,6 +73,7 @@ group :development, :test do
   # TDD, BDD and other D's
   gem 'rspec', '~> 3.4'
   gem 'rspec-rails', '~> 3.4'
+  gem 'capybara', '~> 2.6'
   gem 'database_cleaner', '~> 1.5'
 end
 
