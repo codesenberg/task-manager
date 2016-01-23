@@ -1,10 +1,10 @@
 class TasksController < ApplicationController
   def index
-    @tasks = current_user.tasks.order(updated_at: :desc).page(params[:page])
+    @tasks = current_user.tasks.order(created_at: :desc).page(params[:page])
   end
 
   def show
-    @task = Task.includes(:attachments).find_by!(id: params[:id])
+    @task = Task.includes(:attachments).find(params[:id])
     fail Trailblazer::NotAuthorizedError unless Task::Policy.new(current_user, @task).show?
   end
 
@@ -24,11 +24,11 @@ class TasksController < ApplicationController
   end
 
   def edit
-    form Task::Update, params: params.merge(current_user: current_user)
+    form Task::Update, params: params_with_user
   end
 
   def update
-    operation = run Task::Update, params: params.merge(current_user: current_user) do |op|
+    operation = run Task::Update, params: params_with_user do |op|
       return redirect_to task_url(op.model)
     end
 
@@ -37,24 +37,20 @@ class TasksController < ApplicationController
   end
 
   def start
-    @task = Task.find(params[:id])
-    fail Trailblazer::NotAuthorizedError unless Task::Policy.new(current_user, @task).start?
-    @task.start and @task.save
-    redirect_to task_url(@task)
+    run Task::Start, params: params_with_user do |op|
+      redirect_to task_url(op.model)
+    end
   end
 
   def finish
-    @task = Task.find(params[:id])
-    fail Trailblazer::NotAuthorizedError unless Task::Policy.new(current_user, @task).finish?
-    @task.finish and @task.save
-    redirect_to task_url(@task)
+    run Task::Finish, params: params_with_user do |op|
+      redirect_to task_url(op.model)
+    end
   end
 
   def destroy
-    @task = Task.find(params[:id])
-    fail Trailblazer::NotAuthorizedError unless Task::Policy.new(current_user, @task).destroy?
-    @task.destroy
-
-    redirect_to tasks_url
+    run Task::Destroy, params: params_with_user do
+      redirect_to tasks_url
+    end
   end
 end

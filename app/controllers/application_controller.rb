@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
+  def params_with_user
+    params.merge(current_user: current_user)
+  end
+
   protected
   def authenticate_user!
     if user_signed_in?

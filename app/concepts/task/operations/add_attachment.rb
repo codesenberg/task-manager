@@ -1,4 +1,4 @@
-class Task::AttachFile < Trailblazer::Operation
+class Task::AddAttachment < Trailblazer::Operation
   include Policy
   policy Task::Policy, :add_attachment?
 

@@ -8,34 +8,39 @@ class Task::Policy
   end
 
   def show?
-    @task.user_id == @user.id
+    is_task_owner?
   end
 
   def update?
-    @task.user_id == @user.id
+    is_task_owner? && !@task.finished?
   end
 
   def destroy?
-    @task.user_id == @user.id
+    is_task_owner? && !@task.finished?
   end
 
   def start?
-    @task.user_id == @user.id
+    is_task_owner?
   end
 
   def finish?
-    @task.user_id == @user.id
+    is_task_owner?
   end
 
   def add_attachment?
-    @task.user_id == @user.id
+    is_task_owner? && !@task.finished?
   end
 
   def destroy_attachment?
-    @task.user_id == @user.id
+    is_task_owner? && !@task.finished?
   end
 
   def download_attachment?
+    is_task_owner?
+  end
+
+  private
+  def is_task_owner?
     @task.user_id == @user.id
   end
 end
