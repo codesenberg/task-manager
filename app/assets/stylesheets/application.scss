@@ -7,3 +7,8 @@
 // Sticky navbar requires this padding tweak in order to not overlap with
 // the body of the page.
 body { padding-top: 70px; }
+
+// For some obscure reason there is no padding in production environment
+.navbar-form .form-group {
+  padding-right: 5px;
+}

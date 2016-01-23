@@ -1,0 +1,17 @@
+language: ruby
+rvm:
+  - 2.2.3
+before_install:
+  - gem install bundler
+install:
+  - bundle install
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database task_manager_test;' -U postgres
+script:
+  - bundle exec rake db:create
+  - bundle exec rake spec
+addons:
+  postgresql: "9.4"
+services:
+  - postgresql
