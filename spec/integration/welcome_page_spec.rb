@@ -24,6 +24,6 @@ RSpec.describe "home page", type: :request do
   it "displays user email in header" do
     sign_in(user)
     visit root_path
-    expect(page).to have_selector(".navbar-right .navbar-text", text: email)
+    expect(page).to have_selector(".signout-form .email", text: email)
   end
 end
