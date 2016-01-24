@@ -4,7 +4,11 @@ table.table.table-bordered.attachments
       td
         .clearfix
           .pull-left
-            = link_to File.basename(attachment.file.path), download_attachment_path(attachment), class: 'vertical-align-sub'
+            - file_name = File.basename(attachment.file.path)
+            = link_to truncate(file_name, length: 10),
+                      download_attachment_path(attachment),
+                      class: 'vertical-align-sub',
+                      title: file_name
           .pull-right
             - unless @task.finished?
               = button_to t('common.destroy'), attachment_path(attachment), class: 'btn btn-danger btn-sm', form_class: 'inline', method: :delete
