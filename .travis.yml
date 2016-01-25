@@ -9,7 +9,6 @@ install:
   - bundle install --jobs=3 --retry=3
 before_script:
   - cp config/database.travis.yml config/database.yml
-  - psql -c 'create database task_manager_test;' -U postgres
 script:
   - bundle exec rake db:create
   - bundle exec rake spec
