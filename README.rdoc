@@ -1,5 +1,5 @@
 == Task Manager
-{<img src="https://travis-ci.org/username-from-outer-space/task-manager.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/username-from-outer-space/task-manager]
+{<img src="https://travis-ci.org/codesenberg/task-manager.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/codesenberg/task-manager]
 === Prerequisites:
 * git
 * rvm
