@@ -13,21 +13,25 @@ RSpec.describe 'create task page', type: :request do
     sign_in(user)
     visit new_task_path
 
-    fill_in 'task[name]', with: 'Hi!'
-    fill_in 'task[description]', with: 'This is my first task!'
+    default_name = 'Hi!'
+    default_description = 'This is my first task!'
+    fill_in 'task[name]', with: default_name
+    fill_in 'task[description]', with: default_description
     click_button 'Submit'
 
     created_task = Task.first
-    expect(created_task.name).to eq('Hi!')
-    expect(created_task.description).to eq('This is my first task!')
+    expect(created_task.name).to eq(default_name)
+    expect(created_task.description).to eq(default_description)
   end
 
   it 'creates task with attachments' do
     sign_in(user)
     visit new_task_path
 
-    fill_in 'task[name]', with: 'Hi!'
-    fill_in 'task[description]', with: 'This is my first task!'
+    default_name = 'Hi!'
+    default_description = 'This is my first task!'
+    fill_in 'task[name]', with: default_name
+    fill_in 'task[description]', with: default_description
     attach_file(
       'task[attachments][]',
       [
@@ -38,8 +42,8 @@ RSpec.describe 'create task page', type: :request do
     click_button I18n.t('tasks.submit')
 
     created_task = Task.first
-    expect(created_task.name).to eq('Hi!')
-    expect(created_task.description).to eq('This is my first task!')
+    expect(created_task.name).to eq(default_name)
+    expect(created_task.description).to eq(default_description)
     expect(created_task.attachments.count).to eq(2)
   end
 end

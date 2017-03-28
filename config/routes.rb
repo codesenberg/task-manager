@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :tasks do
     member do
-      post :start
-      post :finish
+      put :start
+      put :finish
     end
   end
 
