@@ -1,8 +1,9 @@
+# AttachmentsController contains endpoints for operations on attachments
 class AttachmentsController < ApplicationController
   def download
     run Task::DownloadAttachment, params: params_with_user do |op|
       send_file op.attachment.file.path,
-                :disposition => 'attachment'
+                disposition: 'attachment'
     end
   end
 
@@ -14,8 +15,8 @@ class AttachmentsController < ApplicationController
 
   def add
     attachment_params = params.fetch(:attachment, {})
-                            .merge(params.slice(:task_id))
-                            .merge(current_user: current_user)
+                              .merge(params.slice(:task_id))
+                              .merge(current_user: current_user)
     operation = run Task::AddAttachment, params: attachment_params do |op|
       return redirect_to task_path(op.model)
     end

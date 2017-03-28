@@ -1,3 +1,4 @@
+# Task describes persistence logic and state transitions for tasks
 class Task < ActiveRecord::Base
   include AASM
   belongs_to :user
@@ -12,17 +13,17 @@ class Task < ActiveRecord::Base
     finished: 2
   }
 
-  aasm :column => :state, :enum => true do
-    state :added, :initial => true
+  aasm column: :state, enum: true do
+    state :added, initial: true
     state :started
     state :finished
 
     event :start do
-      transitions :from => :added, :to => :started
+      transitions from: :added, to: :started
     end
 
     event :finish do
-      transitions :from => :started, :to => :finished
+      transitions from: :started, to: :finished
     end
   end
 end

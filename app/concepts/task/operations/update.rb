@@ -1,27 +1,30 @@
-class Task::Update < Trailblazer::Operation
-  include Model
-  model Task, :update
+class Task
+  # Update contains business logic for updating tasks
+  class Update < Trailblazer::Operation
+    include Model
+    model Task, :update
 
-  include Policy
-  policy Task::Policy, :update?
+    include Trailblazer::Operation::Policy
+    policy Task::Policy, :update?
 
-  contract do
-    property :name,
-             validates: {
+    contract do
+      property :name,
+               validates: {
                  presence: true,
                  length: { maximum: Task::MAX_NAME_LENGTH }
-             }
+               }
 
-    property :description,
-             validates: {
+      property :description,
+               validates: {
                  presence: true,
                  length: { maximum: Task::MAX_DESCRIPTION_LENGTH }
-             }
-  end
+               }
+    end
 
-  def process(params)
-    validate(params[:task]) do
-      contract.save
+    def process(params)
+      validate(params[:task]) do
+        contract.save
+      end
     end
   end
 end

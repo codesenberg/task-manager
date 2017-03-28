@@ -1,3 +1,5 @@
+# ApplicationController is a main controller of the app. It defines some
+# helper methods used by other controllers
 class ApplicationController < ActionController::Base
   include Trailblazer::Operation::Controller
   # Prevent CSRF attacks by raising an exception.
@@ -15,6 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
   def authenticate_user!
     if user_signed_in?
       super

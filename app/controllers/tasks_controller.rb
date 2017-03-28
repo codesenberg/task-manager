@@ -1,3 +1,4 @@
+# TasksController contains endpoints for operations on tasks.
 class TasksController < ApplicationController
   def index
     @tasks = current_user.tasks.order(created_at: :desc).page(params[:page])
@@ -5,7 +6,9 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.includes(:attachments).find(params[:id])
-    fail Trailblazer::NotAuthorizedError unless Task::Policy.new(current_user, @task).show?
+    raise Trailblazer::NotAuthorizedError unless Task::Policy.new(
+      current_user, @task
+    ).show?
   end
 
   def new
@@ -14,7 +17,8 @@ class TasksController < ApplicationController
 
   def create
     task_params = params[:task].merge(user_id: current_user.id)
-    task_params[:attachments] = task_params.fetch(:attachments, []).map {|file| {file: file}}
+    task_params[:attachments] = task_params.fetch(:attachments, [])
+                                           .map { |file| { file: file } }
     operation = run Task::Create, params: task_params do |op|
       return redirect_to task_url(op.model)
     end
