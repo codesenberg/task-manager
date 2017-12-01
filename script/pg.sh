@@ -3,7 +3,7 @@
 function start_db {
   docker run --name task_manager_pg_db\
     -e POSTGRES_PASSWORD=password\
-    -p 5432:5432 -v "$(pwd)"/db/development-db:/var/lib/postgresql/data\
+    -p 5432:5432 -v task_manager_pg_volume:/var/lib/postgresql/data\
     -d postgres
 }
 

@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
+ruby '2.4.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
+gem 'rails', '~> 4.2.10'
 # Pg is the Ruby interface to the PostgreSQL RDBMS
-gem 'pg', '~> 0.18.4'
+gem 'pg', '~> 0.21.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -39,7 +39,7 @@ gem 'aasm', '~> 4.7'
 # encapsulation, an intuitive code structure and gives you an
 # object-oriented architecture.
 gem 'trailblazer', '~> 1.1'
-gem 'trailblazer-rails', '~> 0.2.3'
+gem 'trailblazer-rails', '~> 0.4'
 
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
 gem 'carrierwave', '~> 0.10'
@@ -51,6 +51,10 @@ gem 'file_validators', '~> 2.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+
+# TZInfo::Data contains data from the IANA Time Zone database packaged as Ruby modules for use with TZInfo.
+gem 'tzinfo-data'
 
 group :production do
   # Use Puma as the app server
@@ -72,10 +76,10 @@ end
 
 group :test do
   # TDD, BDD and other D's
-  gem 'rspec', '~> 3.4'
-  gem 'rspec-rails', '~> 3.4'
+  gem 'rspec', '~> 3.7'
+  gem 'rspec-rails', '~> 3.7'
   gem 'capybara', '~> 2.6'
-  gem 'database_cleaner', '~> 1.5'
+  gem 'database_cleaner', '~> 1.5.1'
 end
 
 group :development, :test do

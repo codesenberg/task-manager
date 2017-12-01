@@ -6,11 +6,12 @@
 * docker
 
 === Installation:
-  1. git clone https://github.com/username-from-outer-space/task-manager.git
+  1. git clone https://github.com/codesenberg/task-manager.git
   2. cd task-manager
   3. bundle
-  4. script/pg.sh start
-  5. bundle exec rake db:create db:migrate db:seed
+  4. create docker volume: docker volume create task_manager_pg_volume
+  5. script/pg.sh start
+  6. bundle exec rake db:create db:migrate db:seed
 And you good to go. Also you might want to run tests:
   bundle exec rake spec
 But be sure to create test database first via:
